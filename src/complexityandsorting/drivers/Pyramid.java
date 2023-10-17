@@ -11,6 +11,12 @@ package complexityandsorting.drivers;
 public class Pyramid extends Shape{
     private double edge;
     
+    public Pyramid(double height, double edge)
+    {
+        super(height);
+        this.edge = edge;
+    }
+    
     public double getEdge() 
     {
         return this.edge;
@@ -23,11 +29,11 @@ public class Pyramid extends Shape{
     @Override
     public double calculateBaseArea()
     {
-        throw new UnsupportedOperationException();
+        return Math.pow(getEdge(), 2);
     }
     @Override
     public double calculateVolume() 
     {
-        throw new UnsupportedOperationException();
+        return (1 / 3) * Math.pow(getEdge(), 2) * getHeight();
     }
 }

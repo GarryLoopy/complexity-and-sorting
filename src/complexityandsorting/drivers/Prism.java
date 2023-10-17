@@ -11,6 +11,12 @@ package complexityandsorting.drivers;
 public abstract class Prism extends Shape{
     private double edge;
     
+    public Prism(double height, double edge)
+    {
+        super(height);
+        this.edge = edge;
+    }
+    
     public double getEdge() 
     {
         return this.edge;

@@ -9,14 +9,15 @@ package complexityandsorting.drivers;
  * @author garry
  */
 public class Cylinder extends Circle{
-    @Override
-    public double calculateBaseArea()
+    
+    public Cylinder(double height, double radius)
     {
-        throw new UnsupportedOperationException();
+        super(height, radius);
     }
+    
     @Override
     public double calculateVolume() 
     {
-        throw new UnsupportedOperationException();
+        return Math.PI * Math.pow(getRadius(), 2) * getHeight();
     }
 }

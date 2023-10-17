@@ -9,14 +9,20 @@ package complexityandsorting.drivers;
  * @author garry
  */
 public class SquarePrism extends Prism{
+    
+    public SquarePrism(double height, double radius)
+    {
+        super(height, radius);
+    }
+    
     @Override
     public double calculateBaseArea()
     {
-        throw new UnsupportedOperationException();
+        return Math.pow(getEdge(), 2);
     }
     @Override
     public double calculateVolume()
     {
-        throw new UnsupportedOperationException();
+        return Math.pow(getEdge(), 2) * getHeight();
     }
 }

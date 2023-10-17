@@ -11,6 +11,11 @@ package complexityandsorting.drivers;
 public abstract class Shape {
     private double height;
     
+    public Shape(double height)
+    {
+        this.height = height;
+    }
+    
     public double getHeight()
     {
         return this.height;

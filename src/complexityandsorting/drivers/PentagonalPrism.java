@@ -9,15 +9,21 @@ package complexityandsorting.drivers;
  * @author garry
  */
 public class PentagonalPrism extends Prism{
+    
+    public PentagonalPrism(double height, double edge)
+    {
+        super(height, edge);
+    }
+    
     @Override
     public double calculateBaseArea()
     {
-        throw new UnsupportedOperationException();
+        return (5.0 * Math.pow(getEdge(), 2) * Math.tan(Math.toRadians(54))) / 4.0;
     }
     @Override
     public double calculateVolume()
     {
-        throw new UnsupportedOperationException();
+        return calculateBaseArea() * getHeight();
     }
     
 }

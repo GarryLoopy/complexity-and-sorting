@@ -9,14 +9,20 @@ package complexityandsorting.drivers;
  * @author garry
  */
 public class TriangularPrism extends Prism{
+    
+    public TriangularPrism(double height, double radius)
+    {
+        super(height, radius);
+    }
+    
     @Override
     public double calculateBaseArea()
     {
-        throw new UnsupportedOperationException();
+        return (Math.sqrt(3) / 4) * Math.pow(getEdge(), 2);
     }
     @Override
     public double calculateVolume()
     {
-        throw new UnsupportedOperationException();
+        return calculateBaseArea() * getHeight();
     }
 }

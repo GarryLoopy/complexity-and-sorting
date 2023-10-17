@@ -5,18 +5,15 @@ package complexityandsorting.drivers;
  * @author garry
  */
 public class Cone extends Circle{
-    
-    //throw new UnsupportedOperationException("Not supported yet.");
 
-    @Override
-    public double calculateBaseArea()
-    {
-        throw new UnsupportedOperationException();
+    public Cone(double height, double radius) {
+        super(height, radius);
     }
+
     @Override
     public double calculateVolume()
     {
-        throw new UnsupportedOperationException();
+        return (1 / 3) * Math.PI * Math.pow(getRadius(), 2) * getHeight();
     }
 
 }

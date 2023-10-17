@@ -10,6 +10,11 @@ package complexityandsorting.drivers;
  */
 public abstract class Circle  extends Shape{
     private double radius;
+
+    public Circle(double height, double radius) {
+        super(height);
+        this.radius = radius;
+    }
     
     public double getRadius()
     {
@@ -18,5 +23,11 @@ public abstract class Circle  extends Shape{
     public void setRadius(double radius) 
     {
         this.radius = radius;
+    }
+    
+    @Override
+    public double calculateBaseArea()
+    {
+        return Math.PI * Math.pow(getRadius(), 2);
     }
 }

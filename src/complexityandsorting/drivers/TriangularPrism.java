@@ -10,9 +10,9 @@ package complexityandsorting.drivers;
  */
 public class TriangularPrism extends Prism{
     
-    public TriangularPrism(double height, double radius)
+    public TriangularPrism(double height, double edge)
     {
-        super(height, radius);
+        super(height, edge);
     }
     
     @Override

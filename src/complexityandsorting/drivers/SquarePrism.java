@@ -10,9 +10,9 @@ package complexityandsorting.drivers;
  */
 public class SquarePrism extends Prism{
     
-    public SquarePrism(double height, double radius)
+    public SquarePrism(double height, double edge)
     {
-        super(height, radius);
+        super(height, edge);
     }
     
     @Override

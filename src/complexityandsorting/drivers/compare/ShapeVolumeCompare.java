@@ -4,7 +4,7 @@
  */
 package complexityandsorting.drivers.compare;
 
-import complexityandsorting.drivers.Shape;
+import complexityandsorting.utilities.Shape;
 
 
 import java.util.Comparator;

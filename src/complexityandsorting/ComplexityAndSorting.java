@@ -1,11 +1,10 @@
 package complexityandsorting;
 
-import complexityandsorting.drivers.Cone;
-import java.util.Arrays;
-
 /**
  *
- * @author garry
+ * @author Garry Jr Dayag
+ * @author Kevin Wong
+ * @author Zacharia Osman
  */
 public class ComplexityAndSorting {
 
@@ -14,12 +13,7 @@ public class ComplexityAndSorting {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        
         System.out.println("Program run successfully");
-        System.out.print("\n");
-        System.out.println("Program run successfully");
-
     }
     
 }

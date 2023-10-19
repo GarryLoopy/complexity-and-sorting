@@ -6,7 +6,7 @@ package complexityandsorting.utilities;
  * @author Kevin Wong
  * @author Zacharia Osman
  */
-public abstract class Shape {
+public abstract class Shape implements Comparable<Shape>{
     private double height;
     
     public Shape(double height)
@@ -25,4 +25,14 @@ public abstract class Shape {
     
     public abstract double calculateBaseArea();
     public abstract double calculateVolume();
+
+    @Override 
+    public int compareTo(Shape otherShape) {
+        if (this.height > otherShape.height)
+            return 1;
+        else if (this.height < otherShape.height)
+            return -1;
+        else 
+            return 0;
+    }
 }

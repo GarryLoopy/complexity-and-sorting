@@ -1,6 +1,7 @@
 package complexityandsorting.drivers;
 
 import complexityandsorting.utilities.Shape;
+import java.util.Comparator;
 
 /**
  *
@@ -13,11 +14,36 @@ public class Sort {
     public static void Bubble(Shape[] data) {
         int dataLength = data.length;
         
-        for (int index = 0; index <= dataLength - 1; )
+        for (int outerIndex = dataLength; outerIndex > 1; outerIndex--)
         {
-            int outerIndex = index + 1;
-            
-            
+            for (int innerIndex = 0; innerIndex < outerIndex - 1; innerIndex++)
+            {
+                if (data[innerIndex].compareTo(data[innerIndex + 1]) == 1)
+                {
+                    Shape temp = data[innerIndex];
+                    
+                    data[innerIndex] = data[innerIndex + 1];
+                    data[innerIndex + 1] = temp;
+                }
+            }
+        }
+    }
+    public static void Bubble(Shape[] data, Comparator comparator)
+    {
+        int dataLength = data.length;
+        
+        for (int outerIndex = dataLength; outerIndex > 1; outerIndex--)
+        {
+            for (int innerIndex = 0; innerIndex < outerIndex - 1; innerIndex++)
+            {
+                if (comparator.compare(data[innerIndex], data[innerIndex + 1]) == 1)
+                {
+                    Shape temp = data[innerIndex];
+                    
+                    data[innerIndex] = data[innerIndex + 1];
+                    data[innerIndex + 1] = temp;
+                }
+            }
         }
     }
 

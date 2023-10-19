@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package complexityandsorting.drivers;
+package complexityandsorting.utilities;
 
 /**
  *
- * @author garry
+ * @author Garry Jr Dayag
+ * 
  */
 public class Cylinder extends Circle{
     

@@ -1,17 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package complexityandsorting.drivers.sort;
+package complexityandsorting.drivers;
 
-import complexityandsorting.drivers.Shape;
-
-
+import complexityandsorting.utilities.Shape;
 import java.util.Comparator;
 
 /**
  *
- * @author garry
+ * @author Garry Jr Dayag
  */
 public class ShapeVolumeCompare implements Comparator<Shape>{
     

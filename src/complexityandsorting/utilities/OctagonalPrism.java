@@ -3,6 +3,8 @@ package complexityandsorting.utilities;
 /**
  *
  * @author Garry Jr Dayag
+ * @author Kevin Wong
+ * @author Zacharia Osman
  */
 public class OctagonalPrism extends Prism{
     

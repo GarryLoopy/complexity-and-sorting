@@ -1,5 +1,7 @@
 package complexityandsorting.drivers;
 
+import complexityandsorting.utilities.Shape;
+
 /**
  *
  * @author Garry Jr Dayag
@@ -8,8 +10,15 @@ package complexityandsorting.drivers;
  */
 public class Sort {
 
-    public static void Bubble(Object[] data) {
-
+    public static void Bubble(Shape[] data) {
+        int dataLength = data.length;
+        
+        for (int index = 0; index <= dataLength - 1; )
+        {
+            int outerIndex = index + 1;
+            
+            
+        }
     }
 
     public static void Insertion(Comparable[] data) {
@@ -40,11 +49,16 @@ public class Sort {
         }
     }
 
-    public static void Merge(Object[] data) {
+    public static void Merge(Shape[] data) {
 
     }
 
-    public static void Quick(Object[] data) {
+    public static void Quick(Shape[] data) {
 
+    }
+    
+    public static void Heap(Shape[] data)
+    {
+        
     }
 }

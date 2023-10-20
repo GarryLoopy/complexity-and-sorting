@@ -13,9 +13,9 @@ public class Cone extends Circle{
     }
 
     @Override
-    public double calculateVolume()
+    protected void calculateVolume()
     {
-        return (1 / 3.0) * Math.PI * Math.pow(getRadius(), 2) * getHeight();
+        setVolume((1 / 3.0) * Math.PI * Math.pow(getRadius(), 2) * getHeight());
     }
 
 }

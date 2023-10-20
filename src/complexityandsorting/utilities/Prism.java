@@ -13,6 +13,9 @@ public abstract class Prism extends Shape{
     {
         super(height);
         this.edge = edge;
+
+        calculateBaseArea();
+        calculateVolume();
     }
     
     public double getEdge() 
@@ -22,5 +25,10 @@ public abstract class Prism extends Shape{
     public void setEdge(double edge)
     {
         this.edge = edge;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nEdge: " + getEdge() + "\nVolume: " + getVolume() + "\nArea: " + getBaseArea() + "\n";
     }
 }

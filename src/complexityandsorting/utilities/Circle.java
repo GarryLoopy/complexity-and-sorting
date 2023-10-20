@@ -12,6 +12,9 @@ public abstract class Circle  extends Shape{
     public Circle(double height, double radius) {
         super(height);
         this.radius = radius;
+
+        calculateBaseArea();
+        calculateVolume();
     }
     
     public double getRadius()
@@ -22,10 +25,16 @@ public abstract class Circle  extends Shape{
     {
         this.radius = radius;
     }
+
     
     @Override
-    public double calculateBaseArea()
+    protected void calculateBaseArea()
     {
-        return Math.PI * Math.pow(getRadius(), 2);
+        setBaseArea(Math.PI * Math.pow(getRadius(), 2));
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nRadius: " + getRadius() + "\nVolume: " + getVolume() + "\nArea: " + getBaseArea() + "\n";
     }
 }

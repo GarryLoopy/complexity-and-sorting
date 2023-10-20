@@ -13,6 +13,9 @@ public class Pyramid extends Shape{
     {
         super(height);
         this.edge = edge;
+
+        calculateBaseArea();
+        calculateVolume();
     }
     
     public double getEdge() 
@@ -25,13 +28,18 @@ public class Pyramid extends Shape{
     }
     
     @Override
-    public double calculateBaseArea()
+    protected void calculateBaseArea()
     {
-        return Math.pow(getEdge(), 2);
+        setBaseArea(Math.pow(getEdge(), 2));
     }
     @Override
-    public double calculateVolume() 
+    protected void calculateVolume() 
     {
-        return (1 / 3) * Math.pow(getEdge(), 2) * getHeight();
+        setVolume((1 / 3) * Math.pow(getEdge(), 2) * getHeight());
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nEdge: " + getEdge() + "\nVolume: " + getVolume() + "\nArea: " + getBaseArea() + "\n";
     }
 }

@@ -28,7 +28,7 @@ public class Sort {
             }
         }
     }
-    public static void Bubble(Shape[] data, Comparator comparator)
+    public static void Bubble(Shape[] data, Comparator<Shape> comparator)
     {
         int dataLength = data.length;
         

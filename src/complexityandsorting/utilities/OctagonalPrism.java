@@ -14,13 +14,13 @@ public class OctagonalPrism extends Prism{
     }
     
     @Override
-    public double calculateBaseArea()
+    protected void calculateBaseArea()
     {
-        return 2.0 * (1 + Math.sqrt(2)) * Math.pow(getEdge(), 2);
+        setBaseArea(2.0 * (1 + Math.sqrt(2)) * Math.pow(getEdge(), 2));
     }
     @Override
-    public double calculateVolume()
+    protected void calculateVolume()
     {
-        return calculateBaseArea() * getHeight() / 4.0;
+        setVolume(getBaseArea() * getHeight() / 4.0);
     }
 }

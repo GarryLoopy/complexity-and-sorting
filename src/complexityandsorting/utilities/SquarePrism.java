@@ -14,13 +14,13 @@ public class SquarePrism extends Prism{
     }
     
     @Override
-    public double calculateBaseArea()
+    protected void calculateBaseArea()
     {
-        return Math.pow(getEdge(), 2);
+        setBaseArea(Math.pow(getEdge(), 2));
     }
     @Override
-    public double calculateVolume()
+    protected void calculateVolume()
     {
-        return Math.pow(getEdge(), 2) * getHeight();
+        setVolume(Math.pow(getEdge(), 2) * getHeight());
     }
 }

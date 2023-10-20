@@ -4,8 +4,6 @@ import complexityandsorting.utilities.Cone;
 import complexityandsorting.drivers.Sort;
 import complexityandsorting.utilities.Shape;
 
-import complexityandsorting.drivers.ShapeVolumeCompare;
-
 /**
  *
  * @author Garry Jr Dayag
@@ -18,13 +16,11 @@ public class ComplexityAndSorting {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         System.out.println("Program runs successfully");
         
         Cone[] cones = generateRandomCones(5);
         
         Sort.Bubble(cones);
-//        Sort.Bubble(cones, new ShapeVolumeCompare());
         
         PrintShapes(cones);
         

@@ -31,6 +31,6 @@ public abstract class Circle  extends Shape{
 
     @Override
     public String toString() {
-        return "Height: " + getHeight() + "\nRadius: " + getRadius() + "\nVolume: " + calculateVolume() + "\nArea: " + calculateBaseArea() + "\n";
+        return super.toString() + "\nRadius: " + getRadius() + "\nVolume: " + calculateVolume() + "\nArea: " + calculateBaseArea() + "\n";
     }
 }

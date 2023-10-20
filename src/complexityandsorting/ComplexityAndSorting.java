@@ -2,6 +2,7 @@ package complexityandsorting;
 
 import complexityandsorting.utilities.Cone;
 import complexityandsorting.drivers.Sort;
+import complexityandsorting.utilities.Shape;
 
 import complexityandsorting.drivers.ShapeVolumeCompare;
 
@@ -25,17 +26,15 @@ public class ComplexityAndSorting {
         Sort.Bubble(cones);
 //        Sort.Bubble(cones, new ShapeVolumeCompare());
         
-        PrintCones(cones);
+        PrintShapes(cones);
         
     }
     
-    public static void PrintCones(Cone[] shapes)
+    public static void PrintShapes(Shape[] shapes)
     {
-        for (Cone shape : shapes)
+        for (Shape shape : shapes)
         {
-            System.out.println("Height: " + shape.getHeight());
-            System.out.println("Radius: " + shape.getRadius());
-            System.out.println("Volume: " + shape.calculateVolume());
+            System.out.println(shape);
             System.out.println();
         }
         

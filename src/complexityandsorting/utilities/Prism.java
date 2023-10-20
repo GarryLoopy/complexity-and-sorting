@@ -26,6 +26,6 @@ public abstract class Prism extends Shape{
 
     @Override
     public String toString() {
-        return "Height: " + getHeight() + "\nEdge: " + getEdge() + "\nVolume: " + calculateVolume() + "\nArea: " + calculateBaseArea() + "\n";
+        return super.toString() + "\nEdge: " + getEdge() + "\nVolume: " + calculateVolume() + "\nArea: " + calculateBaseArea() + "\n";
     }
 }

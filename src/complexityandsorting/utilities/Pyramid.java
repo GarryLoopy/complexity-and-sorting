@@ -34,4 +34,9 @@ public class Pyramid extends Shape{
     {
         return (1 / 3) * Math.pow(getEdge(), 2) * getHeight();
     }
+
+    @Override
+    public String toString() {
+        return "Height: " + getHeight() + "\nEdge: " + getEdge() + "\nVolume: " + calculateVolume() + "\nArea: " + calculateBaseArea() + "\n";
+    }
 }

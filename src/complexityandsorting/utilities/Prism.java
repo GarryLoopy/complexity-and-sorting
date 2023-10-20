@@ -23,4 +23,9 @@ public abstract class Prism extends Shape{
     {
         this.edge = edge;
     }
+
+    @Override
+    public String toString() {
+        return "Height: " + getHeight() + "\nEdge: " + getEdge() + "\nVolume: " + calculateVolume() + "\nArea: " + calculateBaseArea() + "\n";
+    }
 }

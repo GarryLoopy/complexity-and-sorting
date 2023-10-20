@@ -28,4 +28,9 @@ public abstract class Circle  extends Shape{
     {
         return Math.PI * Math.pow(getRadius(), 2);
     }
+
+    @Override
+    public String toString() {
+        return "Height: " + getHeight() + "\nRadius: " + getRadius() + "\nVolume: " + calculateVolume() + "\nArea: " + calculateBaseArea() + "\n";
+    }
 }

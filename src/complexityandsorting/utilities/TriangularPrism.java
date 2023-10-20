@@ -14,13 +14,13 @@ public class TriangularPrism extends Prism{
     }
     
     @Override
-    public double calculateBaseArea()
+    protected void calculateBaseArea()
     {
-        return (Math.sqrt(3) / 4) * Math.pow(getEdge(), 2);
+        setBaseArea((Math.sqrt(3) / 4) * Math.pow(getEdge(), 2));
     }
     @Override
-    public double calculateVolume()
+    protected void calculateVolume()
     {
-        return calculateBaseArea() * getHeight();
+        setVolume(getBaseArea() * getHeight());
     }
 }

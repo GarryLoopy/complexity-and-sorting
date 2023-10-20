@@ -14,8 +14,8 @@ public class Cylinder extends Circle{
     }
     
     @Override
-    public double calculateVolume() 
+    protected void calculateVolume() 
     {
-        return Math.PI * Math.pow(getRadius(), 2) * getHeight();
+        setVolume(Math.PI * Math.pow(getRadius(), 2) * getHeight());
     }
 }

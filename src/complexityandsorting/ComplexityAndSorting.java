@@ -1,7 +1,5 @@
 package complexityandsorting;
 
-import complexityandsorting.utilities.Cone;
-
 import java.io.IOException;
 
 import complexityandsorting.drivers.FileHelper;
@@ -24,13 +22,13 @@ public class ComplexityAndSorting {
         FileHelper fileHelper;
 
         try {
-            fileHelper = new FileHelper("src\\data\\testData.txt");
+            fileHelper = new FileHelper("src\\data\\polyfor1.txt");
         } catch (IOException e) {
             return;
         }
 
-        System.out.println("Sorted by volume");
-        Sort.Bubble(fileHelper.GetShapes(), new ShapeVolumeCompare());
+        System.out.println("Sorted by height");
+        Sort.Bubble(fileHelper.GetShapes());
         PrintShapes(fileHelper.GetShapes());
     }
     

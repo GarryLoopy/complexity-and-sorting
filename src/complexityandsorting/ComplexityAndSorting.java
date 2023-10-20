@@ -1,6 +1,11 @@
 package complexityandsorting;
 
 import complexityandsorting.utilities.Cone;
+
+import java.io.IOException;
+
+import complexityandsorting.drivers.FileHelper;
+import complexityandsorting.drivers.ShapeVolumeCompare;
 import complexityandsorting.drivers.Sort;
 import complexityandsorting.utilities.Shape;
 
@@ -16,14 +21,17 @@ public class ComplexityAndSorting {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Program runs successfully");
-        
-        Cone[] cones = generateRandomCones(5);
-        
-        Sort.Bubble(cones);
-        
-        PrintShapes(cones);
-        
+        FileHelper fileHelper;
+
+        try {
+            fileHelper = new FileHelper("src\\data\\testData.txt");
+        } catch (IOException e) {
+            return;
+        }
+
+        System.out.println("Sorted by volume");
+        Sort.Bubble(fileHelper.GetShapes(), new ShapeVolumeCompare());
+        PrintShapes(fileHelper.GetShapes());
     }
     
     public static void PrintShapes(Shape[] shapes)
@@ -33,23 +41,5 @@ public class ComplexityAndSorting {
             System.out.println(shape);
             System.out.println();
         }
-        
-        
-    }
-    
-    
-    public static Cone[] generateRandomCones(int amount)
-    {
-        Cone[] cones = new Cone[amount];
-        for (int i = 0; i < amount; i++)
-        {
-            cones[i] = new Cone(
-                    Math.random() * 100, 
-                    Math.random() * 100
-            );
-        }
-        
-        return cones;
-    }
-    
+    }    
 }

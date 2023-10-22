@@ -3,8 +3,10 @@ package complexityandsorting;
 import java.io.IOException;
 
 import complexityandsorting.drivers.FileHelper;
+import complexityandsorting.drivers.ShapeHelper;
+import complexityandsorting.drivers.ShapeVolumeCompare;
+import complexityandsorting.drivers.ShapeBaseAreaCompare;
 import complexityandsorting.drivers.Sort;
-import complexityandsorting.utilities.Shape;
 
 /**
  *
@@ -19,24 +21,17 @@ public class ComplexityAndSorting {
      */
     public static void main(String[] args) {
         FileHelper fileHelper;
+        ShapeHelper shapeHelper;
 
         try {
-            fileHelper = new FileHelper("src\\data\\polyfor1.txt");
+            fileHelper = new FileHelper("src\\data\\testData.txt");
         } catch (IOException e) {
+            System.out.println("File not found");
             return;
         }
 
-        System.out.println("Sorted by height");
-        Sort.Bubble(fileHelper.GetShapes());
-        PrintShapes(fileHelper.GetShapes());
+        shapeHelper = new ShapeHelper(fileHelper.GetContentsSplit(), fileHelper.GetAmountOfShapes());
+        Sort.Merge(shapeHelper.GetShapes(), new ShapeBaseAreaCompare());
+        shapeHelper.PrintShapes();
     }
-    
-    public static void PrintShapes(Shape[] shapes)
-    {
-        for (Shape shape : shapes)
-        {
-            System.out.println(shape);
-            System.out.println();
-        }
-    }    
 }

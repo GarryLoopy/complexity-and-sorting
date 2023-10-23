@@ -36,4 +36,9 @@ public class Pyramid extends Shape{
     {
         return (1 / 3) * Math.pow(getEdge(), 2) * getHeight();
     }
+
+    @Override
+    public String getShapeName() {
+        return "Pyramid";
+    }
 }

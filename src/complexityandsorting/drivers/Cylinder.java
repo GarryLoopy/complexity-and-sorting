@@ -20,4 +20,9 @@ public class Cylinder extends Circle{
     {
         return Math.PI * Math.pow(getRadius(), 2) * getHeight();
     }
+
+    @Override
+    public String getShapeName() {
+        return "Cylinder";
+    }
 }

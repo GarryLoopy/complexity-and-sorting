@@ -25,4 +25,9 @@ public class SquarePrism extends Prism{
     {
         return Math.pow(getEdge(), 2) * getHeight();
     }
+
+    @Override
+    public String getShapeName() {
+        return "Square Prisim";
+    }
 }

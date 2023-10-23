@@ -25,5 +25,10 @@ public class PentagonalPrism extends Prism{
     {
         return calculateBaseArea() * getHeight();
     }
+
+    @Override
+    public String getShapeName() {
+        return "Pentagonal Prisim";
+    }
     
 }

@@ -25,4 +25,9 @@ public class OctagonalPrism extends Prism{
     {
         return calculateBaseArea() * getHeight() / 4.0;
     }
+
+    @Override
+    public String getShapeName() {
+        return "Octagonal Prisim";
+    }
 }

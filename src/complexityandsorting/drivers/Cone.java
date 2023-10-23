@@ -16,4 +16,9 @@ public class Cone extends Circle{
         return (1 / 3) * Math.PI * Math.pow(getRadius(), 2) * getHeight();
     }
 
+    @Override
+    public String getShapeName() {
+        return "Cone";
+    }
+
 }

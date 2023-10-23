@@ -25,4 +25,9 @@ public class TriangularPrism extends Prism{
     {
         return calculateBaseArea() * getHeight();
     }
+
+    @Override
+    public String getShapeName() {
+        return "Triangular Prisim";
+    }
 }

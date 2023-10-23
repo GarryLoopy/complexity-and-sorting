@@ -27,4 +27,8 @@ public abstract class Shape {
     
     public abstract double calculateBaseArea();
     public abstract double calculateVolume();
+
+    public abstract String getShapeName();
+
+    
 }

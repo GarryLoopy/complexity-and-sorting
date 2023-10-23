@@ -232,8 +232,64 @@ public class Sort {
         }
     }
 
-    public static void Quick(Shape[] data) {
-
+    public static void Quick(Shape[] data, int start, int end) 
+    {
+        if (end <= start) return;
+        
+        int pivot = Partition(data,start, end);
+        Quick(data, start, pivot - 1);
+        Quick(data, pivot + 1, end);
+    }
+    
+    public static void Quick(Shape[] data, int start, int end, Comparator<Shape> comparator) 
+    {
+        if (end <= start) return;
+        
+        int pivot = Partition(data,start, end);
+        Quick(data, start, pivot - 1, comparator);
+        Quick(data, pivot + 1, end, comparator);
+    }
+        
+    public static int Partition(Shape[] data, int start, int end, Comparator<Shape> comparator) 
+    {
+        Shape pivot = data[end];
+        int i = start - 1;
+        
+        for (int j = start; j <= end - 1; j++)
+        {
+            if (comparator.compare(data[j], pivot) == -1)
+            {
+                i++;
+                Swap(data, i, j);
+            }
+        }
+        
+        i++;
+        
+        Swap(data, i, end);
+        
+        return i;
+    }
+    
+    public static int Partition(Shape[] data, int start, int end) 
+    {
+        Shape pivot = data[end];
+        int i = start - 1;
+        
+        for (int j = start; j <= end - 1; j++)
+        {
+            if (data[j].compareTo(pivot) == -1)
+            {
+                i++;
+                Swap(data, i, j);
+            }
+        }
+        
+        i++;
+        
+        Swap(data, i, end);
+        
+        return i;
     }
     
     public static void Heap(Shape[] data)

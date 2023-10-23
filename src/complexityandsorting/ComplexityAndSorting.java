@@ -34,21 +34,18 @@ public class ComplexityAndSorting {
         for (String pram : args){
             
             if (pram.contains("-f")){
+                //read file + make objects + add to list
+
+                List<Shape> mshapeList = readFileShapes(pram);
                 
-                //for converting the filepath to proper form
-                List<Shape> mshapeList = new ArrayList<>();
-                
-                mshapeList = readFileShapes(pram);
+                //just seeing the list
                 System.out.println("-------------");
-                
                 for (Shape shape : mshapeList) {
                     System.out.println("This is a " + shape.getShapeName());
                     System.out.println("Height: " + shape.getHeight());
                     System.out.println("Radius: " + ((Circle) shape).getRadius());
                     System.out.println("-------------");
                 }
-                    
- 
             }
             else if (pram.contains("-th")){
                 System.out.println("hi im paul");

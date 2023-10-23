@@ -66,7 +66,6 @@ public abstract class fileReading {
             }
             else if (array[i].equals("Cone") == true){
                 shapeList.add(new Cone(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
-                
             }
            
         }

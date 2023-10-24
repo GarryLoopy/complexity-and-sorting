@@ -49,6 +49,12 @@ public class ComplexityAndSorting {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        args[0] = "-th";
+        args[1] = "-fsrc\\data\\testData.txt";
+        args[2] = "-sz";
+        
+        
         if (args.length != 3)
         {
             System.out.println("Must have an argument of 3, found " + args.length);

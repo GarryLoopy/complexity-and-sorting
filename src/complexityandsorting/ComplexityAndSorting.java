@@ -31,7 +31,7 @@ public class ComplexityAndSorting {
         }
 
         shapeHelper = new ShapeHelper(fileHelper.GetContentsSplit(), fileHelper.GetAmountOfShapes());
-        Sort.Quick(shapeHelper.GetShapes(), 0, shapeHelper.GetShapes().length - 1);
+        Sort.Heap(shapeHelper.GetShapes(), new ShapeBaseAreaCompare());
         shapeHelper.PrintShapes();
     }
 }

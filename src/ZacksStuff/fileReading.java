@@ -6,7 +6,12 @@ package ZacksStuff;
 
 import complexityandsorting.drivers.Cone;
 import complexityandsorting.drivers.Cylinder;
+import complexityandsorting.drivers.OctagonalPrism;
+import complexityandsorting.drivers.PentagonalPrism;
+import complexityandsorting.drivers.Pyramid;
 import complexityandsorting.drivers.Shape;
+import complexityandsorting.drivers.SquarePrism;
+import complexityandsorting.drivers.TriangularPrism;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -61,12 +66,33 @@ public abstract class fileReading {
         
         for (int i = 1; i < array.length; i++){
             
+            //circles
             if (array[i].equals("Cylinder") == true){
                 shapeList.add(new Cylinder(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
             }
             else if (array[i].equals("Cone") == true){
                 shapeList.add(new Cone(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
             }
+            
+            //prisims
+            else if (array[i].equals("OctagonalPrism") == true){
+                shapeList.add(new OctagonalPrism(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
+            }
+            else if (array[i].equals("TriangularPrism") == true){
+                shapeList.add(new TriangularPrism(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
+            }
+            else if (array[i].equals("PentagonalPrism") == true){
+                shapeList.add(new PentagonalPrism(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
+            }
+            else if (array[i].equals("SquarePrism") == true){
+                shapeList.add(new SquarePrism(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
+            }
+            
+            //pryamid
+            else if (array[i].equals("Pyramid") == true){
+                shapeList.add(new Pyramid(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
+            }
+            
            
         }
         return shapeList;

@@ -24,6 +24,8 @@ public class SortAlgorithm {
           swapped = true;
         }
       }
+      if (!swapped)
+        break;
     }
   }
 
@@ -90,8 +92,6 @@ public class SortAlgorithm {
   }
 
   public static void quickSort(Shape[] arr, int low, int high) {
-    quickSort(arr, 0, arr.length - 1);
-
     if (low < high) {
       int pi = partition(arr, low, high);
       quickSort(arr, low, pi - 1);

@@ -40,6 +40,7 @@ public class ComplexityAndSorting {
         "a"  // Base area
     };
     
+    
     static boolean flag = true;
     
     static FileHelper fileHelper;

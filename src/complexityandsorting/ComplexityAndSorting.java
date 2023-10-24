@@ -19,13 +19,16 @@ import complexityandsorting.drivers.ShapeBaseAreaCompare;
  * @author Zacharia Osman
  */
 public class ComplexityAndSorting {
-
+    
+    // Dictionary for holding user input
     static Map<String, String> userInput;
-
+    
+    // Possible arguments
     static String typeArgument = "-t";
     static String fileArgument = "-f";
     static String sortArgument = "-s";
-
+    
+    // Possible sort arguments
     static String[] possibleSortArguments = new String[]{
         "b", // Bubble
         "s", // Selection
@@ -34,19 +37,23 @@ public class ComplexityAndSorting {
         "q", // Quick
         "z" // Heap
     };
-
+    
+    // Possible type of data arguments
     static String[] possibleTypeArgument = new String[]{
         "v", // Volume
         "h", // Height
         "a" // Base area
     };
-
+    
+    // Flag for controlling whether to run the program or not
     static boolean flag = true;
 
+    // Helpers
     static FileHelper fileHelper;
     static ShapeHelper shapeHelper;
 
     /**
+     * Main entry of the program
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -54,31 +61,44 @@ public class ComplexityAndSorting {
         args[0] = "-tv";
         args[1] = "-fsrc\\data\\polyfor1.txt";
         args[2] = "-sq";
-
+        
+        // Check for length
         if (!CheckForLength(args)) {
             return;
         }
-
+        
+        // Initialize Dictionary
         InitializeDictionary();
-
+        
+        //Checks for validities
         CheckForValidities(args);
-
+        
+        // Checks if arguments are valid, exits if invalid
         if (!flag) {
             System.out.println("Program did not run");
             System.out.println("Please ensure that you have the proper arguments");
             return;
         }
-
+        
+        // Create a new shape helper
         shapeHelper = new ShapeHelper(fileHelper);
         
+        // Run sorts
         RunSort();
         
+        //Print shapes
         shapeHelper.PrintShapes();
 
     }
-
+    
+    /**
+     * Initiates which sorting algorithm to run via height, volume or base area
+     */
     private static void RunSort() {
+        // Gets user input
         String userInputType = userInput.get(typeArgument).toLowerCase();
+        
+        // Checks whether to sort via height, area or volume
         if (userInputType.equalsIgnoreCase("h")) {
             RunSortForShapes();
         } else {
@@ -91,14 +111,30 @@ public class ComplexityAndSorting {
             }
         }
     }
-
+    
+    /**
+     * Runs all the required validity tests
+     * @param args the arguments of the user
+     */
     private static void CheckForValidities(String[] args) {
+        // Checks for input
         flag = CheckForInput(args);
+        
+        // Checks for sort argument
         flag = CheckForSortValidity();
+        
+        // Checks for type of data argument
         flag = CheckForTypeValidity();
+        
+        // Checks for file argument
         flag = CheckForFileValidity();
     }
 
+    /**
+     * Checks for length of array, prints a helpful message if invalid
+     * @param args the arguments of the user to check
+     * @return true if the argument is of proper length else false
+     */
     private static boolean CheckForLength(String[] args) {
         if (args.length != 3) {
             System.out.println("Must have an argument of 3, found " + args.length);
@@ -111,10 +147,18 @@ public class ComplexityAndSorting {
 
         return true;
     }
-
+    
+    /**
+     * Runs the sorting algorithm via the given argument for sort
+     */
     private static void RunSortForShapes() {
+        // Gets shape
         Shape[] data = shapeHelper.GetShapes();
+        
+        // Gets amount of data
         int amountOfData = data.length;
+        
+        // Calls the proper method for sorting via given argument
         switch (userInput.get(sortArgument)) {
             case "b" ->
                 Sort.Bubble(data);
@@ -130,10 +174,19 @@ public class ComplexityAndSorting {
                 Sort.Heap(data);
         }
     }
-
+    
+    /**
+     * Runs the sorting algorithm via the given argument for sort
+     * @param comparator the comparator used to sort the data
+     */
     private static void RunSortForShapes(Comparator<Shape> comparator) {
+        // Gets shape
         Shape[] data = shapeHelper.GetShapes();
+        
+        // Amount of data
         int amountOfData = data.length;
+        
+        // Calls the proper method for sorting via given argument
         switch (userInput.get(sortArgument)) {
             case "b" ->
                 Sort.Bubble(data, comparator);
@@ -149,9 +202,16 @@ public class ComplexityAndSorting {
                 Sort.Heap(data, comparator);
         }
     }
-
+    
+    /**
+     * Checks if file is valid, instantiates file helper if valid
+     * @return true is file is valid else false
+     */
     private static boolean CheckForFileValidity() {
+        // Gets file path
         String filePath = userInput.get(fileArgument);
+        
+        // Try opening the file, instantiates file helper
         try {
             fileHelper = new FileHelper(filePath);
         } catch (IOException ex) {
@@ -161,12 +221,19 @@ public class ComplexityAndSorting {
 
         return true;
     }
-
+    
+    /**
+     * Checks if type of data given is valid
+     * @return true if type of data is valid else false
+     */
     private static boolean CheckForTypeValidity() {
+        // Gets current user input for type
         String argument = userInput.get(typeArgument);
-
+        
+        // Flag to check for validity
         boolean typeFlag = false;
-
+        
+        // Checks if argument is valid
         for (String str : possibleTypeArgument) {
             if (str.equalsIgnoreCase(argument)) {
                 typeFlag = true;
@@ -180,18 +247,26 @@ public class ComplexityAndSorting {
             return false;
         }
     }
-
+    
+    /**
+     * Checks if the sort input is a valid argument
+     * @return true if the argument is valid else false
+     */
     private static boolean CheckForSortValidity() {
+        // Gets current argument
         String argument = userInput.get(sortArgument);
-
+        
+        // A flag to determine validity
         boolean sortFlag = false;
-
+        
+        // Checks for possible arguments
         for (String str : possibleSortArguments) {
             if (str.equalsIgnoreCase(argument)) {
                 sortFlag = true;
             }
         }
-
+        
+        
         if (sortFlag) {
             return true;
         } else {
@@ -199,12 +274,19 @@ public class ComplexityAndSorting {
             return false;
         }
     }
-
+    
+    /**
+     * Checks the user inputs
+     * @param args
+     * @return false if an invalid input it found else true
+     */
     private static boolean CheckForInput(String[] args) {
-        String currentValue;
+        // Loop through user inputs
         for (String str : args) {
-            currentValue = str.substring(0, 2);
-
+            // Gets the first two characters
+            String currentValue = str.substring(0, 2);
+            
+            // Checks if user input is a valid input
             if (userInput.containsKey(currentValue)) {
                 userInput.put(currentValue, str.substring(2));
             } else {
@@ -215,7 +297,9 @@ public class ComplexityAndSorting {
 
         return true;
     }
-
+    /**
+     * Initializes the dictionary with empty values ("")
+     */
     private static void InitializeDictionary() {
         userInput = new HashMap<>();
 

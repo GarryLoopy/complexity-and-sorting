@@ -8,6 +8,8 @@ import complexityandsorting.utilities.Shape;
 import complexityandsorting.utilities.SquarePrism;
 import complexityandsorting.utilities.TriangularPrism;
 
+import complexityandsorting.drivers.FileHelper;
+
 public class ShapeHelper {
 
     String[] contentsSplit;
@@ -16,10 +18,10 @@ public class ShapeHelper {
 
     Shape[] shapes;
 
-    public ShapeHelper(String[] contentsSplit, int amountOfShapes)
+    public ShapeHelper(FileHelper fileHelper)
     {
-        this.contentsSplit = contentsSplit;
-        this.amountOfShapes = amountOfShapes;
+        this.contentsSplit = fileHelper.GetContentsSplit();
+        this.amountOfShapes = fileHelper.GetAmountOfShapes();
 
         CreateShapes();
     }

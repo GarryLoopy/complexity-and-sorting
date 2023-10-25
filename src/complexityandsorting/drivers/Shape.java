@@ -8,9 +8,13 @@ package complexityandsorting.drivers;
  *
  * @author garry
  */
-public abstract class Shape {
+public abstract class Shape implements Comparable<Shape>{
     private double height;
     
+    /**
+     *
+     * @param height
+     */
     public Shape(double height)
     {
         this.height = height;
@@ -29,6 +33,11 @@ public abstract class Shape {
     public abstract double calculateVolume();
 
     public abstract String getShapeName();
-
+    //compare two shapes by height using comparable
+    @Override
+    public int compareTo(Shape o){
+        return Double.compare(o.height, this.height);
+    }
+    
     
 }

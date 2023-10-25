@@ -6,6 +6,7 @@ import static ZacksStuff.fileReading.convertToFileFormat;
 import static ZacksStuff.fileReading.readFileShapes;
 import complexityandsorting.drivers.Circle;
 import complexityandsorting.drivers.Cylinder;
+import complexityandsorting.drivers.Prism;
 import complexityandsorting.drivers.Pyramid;
 import complexityandsorting.drivers.Shape;
 import java.io.BufferedReader;
@@ -33,6 +34,7 @@ public class ComplexityAndSorting {
         
         for (String pram : args){
             
+            //file reading
             if (pram.contains("-f")){
                 //read file + make objects + add to list
 
@@ -40,34 +42,76 @@ public class ComplexityAndSorting {
                 
                 //just seeing the list
                 System.out.println("-------------");
-                for (Shape shape : mshapeList) {
-                    System.out.println("This is a " + shape.getShapeName());
-                    System.out.println("Height: " + shape.getHeight());
-                    System.out.println("Radius: " + ((Circle) shape).getRadius());
-                    System.out.println("-------------");
-                }
+                System.out.println(mshapeList.get(0).compareTo(mshapeList.get(4)));
+                
+//                for (Shape shape : mshapeList) {
+//                    if (shape instanceof Circle circle){
+//                        System.out.println("This is a " + shape.getShapeName());
+//                        System.out.println("Height: " + shape.getHeight());
+//                        System.out.println("Radius: " + circle.getRadius());
+//                        System.out.println("Base area: " + circle.calculateBaseArea());
+//                        System.out.println("-------------");
+//                    }
+//                    else if (shape instanceof Prism prism) {
+//                        System.out.println("This is a " + shape.getShapeName());
+//                        System.out.println("Height: " + shape.getHeight());
+//                        System.out.println("Edge: " + prism.getEdge());
+//                        System.out.println("-------------");
+//                    }
+//                    else if (shape instanceof Pyramid pyramid) {
+//                        System.out.println("This is a " + shape.getShapeName());
+//                        System.out.println("Height: " + shape.getHeight());
+//                        System.out.println("Edge: " + pyramid.getEdge());
+//                        System.out.println("-------------");
+//                    }
+//             
+//                    
+//                    
+//                }
             }
+            
+            if("hi".equals("hi") == true){
+                System.out.println("-------------");
+            }
+            //t
+                //height
             else if (pram.contains("-th")){
                 System.out.println("hi im paul");
-                
             }
+                //volume
             else if (pram.contains("-tv")){
                 System.out.println("hi im steeeeeeeven");
+            }
+                //base area
+            else if (pram.contains("-ta")){
+                System.out.println("a");
                 
             }
-            else if (pram.contains("-s1")){
+            
+            
+            //sorting
+                //bubble sort
+            else if (pram.contains("-sb")){
                 
             }
-            else if (pram.contains("-s2")){
+                //insersion sort
+            else if (pram.contains("-si")){
                 
             }
-            else if (pram.contains("-s3")){
+                //selection sort
+            else if (pram.contains("-ss")){
                 
             }
-            else if (pram.contains("-s4")){
+                //mege sort
+            else if (pram.contains("-sm")){
                 
             }
-            else if (pram.contains("-s5")){
+                //quick sort
+            else if (pram.contains("-sq")){
+                
+            }
+                //my sort method
+            else if (pram.contains("-s6")){
                 
             }
             else{

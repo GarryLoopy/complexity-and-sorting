@@ -62,7 +62,10 @@ public class ComplexityAndSorting {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        args[1]=  "-tv";
+        args[0] = "-sb";
+        args[2] = "-fsrc\\data\\polyfor1.txt";
+        
         // Check for length
         if (!CheckForLength(args)) {
             return;

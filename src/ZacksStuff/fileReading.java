@@ -36,7 +36,7 @@ public abstract class fileReading {
         return convertedFile;
         
     }
-    public static List<Shape> readFileShapes(String filePath) throws IOException{
+    public static Shape[] readFileShapes(String filePath) throws IOException{
                 
         filePath = convertToFileFormat(filePath);
         String size = "";
@@ -59,48 +59,49 @@ public abstract class fileReading {
         
         
     }
-    public static List<Shape> makeShapeObjects(String[] array){
-        
+    public static Shape[] makeShapeObjects(String[] array) {
         int size = Integer.parseInt(array[0]);
-        List<Shape> shapeList = new ArrayList<>();
-        
-        for (int i = 1; i < array.length; i++){
-            
-            //circles
-            if (array[i].equals("Cylinder") == true){
-                shapeList.add(new Cylinder(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
+
+        // Array of shape objects
+        Shape[] shapeArray = new Shape[size];
+
+        // Index counter
+        int index = 0;
+
+        for (int i = 1; i < array.length; i = i+3) {
+            if (index < size) {
+                // Upper limit size on index var
+
+                // Circles
+                if (array[i].equals("Cylinder")) {
+                    shapeArray[index] = new Cylinder(Double.parseDouble(array[i + 1]), Double.parseDouble(array[i + 2]));
+                } else if (array[i].equals("Cone")) {
+                    shapeArray[index] = new Cone(Double.parseDouble(array[i + 1]), Double.parseDouble(array[i + 2]));
+                } // Prisms
+                else if (array[i].equals("OctagonalPrism")) {
+                    shapeArray[index] = new OctagonalPrism(Double.parseDouble(array[i + 1]), Double.parseDouble(array[i + 2]));
+                } 
+                else if (array[i].equals("TriangularPrism")) {
+                    shapeArray[index] = new TriangularPrism(Double.parseDouble(array[i + 1]), Double.parseDouble(array[i + 2]));
+                } 
+                else if (array[i].equals("PentagonalPrism")) {
+                    shapeArray[index] = new PentagonalPrism(Double.parseDouble(array[i + 1]), Double.parseDouble(array[i + 2]));
+                } 
+                else if (array[i].equals("SquarePrism")) {
+                    shapeArray[index] = new SquarePrism(Double.parseDouble(array[i + 1]), Double.parseDouble(array[i + 2]));
+                } // Pyramid
+                else if (array[i].equals("Pyramid")) {
+                    shapeArray[index] = new Pyramid(Double.parseDouble(array[i + 1]), Double.parseDouble(array[i + 2]));
+                }
+                index++;
+            } else {
+                // Reset index when it reaches the size limit
+                index = 0;
             }
-            else if (array[i].equals("Cone") == true){
-                shapeList.add(new Cone(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
-            }
-            
-            //prisims
-            else if (array[i].equals("OctagonalPrism") == true){
-                shapeList.add(new OctagonalPrism(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
-            }
-            else if (array[i].equals("TriangularPrism") == true){
-                shapeList.add(new TriangularPrism(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
-            }
-            else if (array[i].equals("PentagonalPrism") == true){
-                shapeList.add(new PentagonalPrism(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
-            }
-            else if (array[i].equals("SquarePrism") == true){
-                shapeList.add(new SquarePrism(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
-            }
-            
-            //pryamid
-            else if (array[i].equals("Pyramid") == true){
-                shapeList.add(new Pyramid(Double.parseDouble(array[i+1]), Double.parseDouble(array[i+2])));
-            }
-            
-           
         }
-        return shapeList;
-        
-        
-        
-        
+        return shapeArray;
     }
+
     
     
     

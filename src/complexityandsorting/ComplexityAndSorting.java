@@ -37,13 +37,13 @@ public class ComplexityAndSorting {
             //file reading
             if (pram.contains("-f")){
                 //read file + make objects + add to list
-
-                List<Shape> mshapeList = readFileShapes(pram);
+                
+                Shape[] mshapeList = readFileShapes(pram);
                 
                 //just seeing the list
                 System.out.println("-------------");
-                System.out.println(mshapeList.get(0).compareTo(mshapeList.get(4)));
-                
+                System.out.println(mshapeList[2].compareTo(mshapeList[4])); 
+                //System.out.println(mshapeList[4]);
 //                for (Shape shape : mshapeList) {
 //                    if (shape instanceof Circle circle){
 //                        System.out.println("This is a " + shape.getShapeName());
@@ -63,16 +63,10 @@ public class ComplexityAndSorting {
 //                        System.out.println("Height: " + shape.getHeight());
 //                        System.out.println("Edge: " + pyramid.getEdge());
 //                        System.out.println("-------------");
-//                    }
-//             
-//                    
-//                    
+//                    }  
 //                }
             }
             
-            if("hi".equals("hi") == true){
-                System.out.println("-------------");
-            }
             //t
                 //height
             else if (pram.contains("-th")){

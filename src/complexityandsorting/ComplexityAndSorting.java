@@ -11,6 +11,9 @@ import complexityandsorting.drivers.Sort;
 
 import complexityandsorting.drivers.ShapeVolumeCompare;
 import complexityandsorting.drivers.ShapeBaseAreaCompare;
+import java.lang.reflect.InvocationTargetException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -80,8 +83,12 @@ public class ComplexityAndSorting {
             return;
         }
         
-        // Create a new shape helper
-        shapeHelper = new ShapeHelper(fileHelper);
+        try {
+            // Create a new shape helper
+            shapeHelper = new ShapeHelper(fileHelper);
+        } catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InstantiationException | NoSuchMethodException | InvocationTargetException ex) {
+            System.out.println(ex.getMessage());
+        }
         
         // Run sorts
         RunSort();

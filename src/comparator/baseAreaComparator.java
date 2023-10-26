@@ -15,10 +15,10 @@ public class baseAreaComparator implements Comparator<Shape> {
 
     @Override
     public int compare(Shape o1, Shape o2) {
-        if(o1.calculateBaseArea() > o1.calculateBaseArea()){
+        if(o1.calculateBaseArea() > o2.calculateBaseArea()){
             return 1;
         }
-        else if (o1.calculateBaseArea() < o1.calculateBaseArea()){
+        else if (o1.calculateBaseArea() < o2.calculateBaseArea()){
             return -1;
         }
         else return 0;

@@ -15,10 +15,10 @@ public class volumeComparator implements Comparator<Shape> {
 
     @Override
     public int compare(Shape o1, Shape o2) {
-        if(o1.calculateVolume() > o1.calculateVolume()){
+        if(o1.calculateVolume() > o2.calculateVolume()){
             return 1;
         }
-        else if (o1.calculateVolume() < o1.calculateVolume()){
+        else if (o1.calculateVolume() < o2.calculateVolume()){
             return -1;
         }
         else return 0;

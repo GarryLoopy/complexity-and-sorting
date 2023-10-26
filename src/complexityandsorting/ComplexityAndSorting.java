@@ -4,6 +4,8 @@ import static ZacksStuff.arrayManiplulation.fistTwo;
 import ZacksStuff.fileReading;
 import static ZacksStuff.fileReading.convertToFileFormat;
 import static ZacksStuff.fileReading.readFileShapes;
+import comparator.baseAreaComparator;
+import comparator.heightComparator;
 import complexityandsorting.drivers.Circle;
 import complexityandsorting.drivers.Cylinder;
 import complexityandsorting.drivers.Prism;
@@ -43,6 +45,7 @@ public class ComplexityAndSorting {
                 //just seeing the list
                 System.out.println("-------------");
                 System.out.println(mshapeList[2].compareTo(mshapeList[4])); 
+                System.out.println(new heightComparator().compare(mshapeList[2], mshapeList[4]));
                 //System.out.println(mshapeList[4]);
 //                for (Shape shape : mshapeList) {
 //                    if (shape instanceof Circle circle){

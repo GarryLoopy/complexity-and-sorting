@@ -34,7 +34,8 @@ public class Pyramid extends Shape{
     @Override
     public double calculateVolume() 
     {
-        return (1 / 3) * Math.pow(getEdge(), 2) * getHeight();
+        //return (1 / 3) * (Math.pow(getEdge(), 2)) * getHeight();
+        return (1.0/3.0) * this.calculateBaseArea() * getHeight();
     }
 
     @Override

@@ -23,6 +23,8 @@ import java.util.logging.Logger;
 import static sorting.sort.bubbleSortBA;
 import static sorting.sort.bubbleSortHeight;
 import static sorting.sort.bubbleSortV;
+import static sorting.sort.mergeSortH;
+import static sorting.sort.mergeSortV;
 
 
 /**
@@ -50,7 +52,9 @@ public class ComplexityAndSorting {
                 //System.out.println(mshapeList[2].compareTo(mshapeList[4])); 
                 //System.out.println(new heightComparator().compare(mshapeList[2], mshapeList[4]));
                 //System.out.println(mshapeList[4]);
-                bubbleSortV(mshapeList);
+                //bubbleSortV(mshapeList);
+                mergeSortV(mshapeList);
+                int counter = 0;
                 for (Shape shape : mshapeList) {
                     if (shape instanceof Circle circle){
                         System.out.println("This is a " + shape.getShapeName());
@@ -76,7 +80,9 @@ public class ComplexityAndSorting {
                         System.out.println("Volume: " + pyramid.calculateVolume());
                         System.out.println("-------------");
                     }  
+                    counter++;
                 }
+                System.out.println(counter);
             }
             
             //t

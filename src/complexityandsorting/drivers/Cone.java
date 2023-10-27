@@ -13,7 +13,8 @@ public class Cone extends Circle{
     @Override
     public double calculateVolume()
     {
-        return (1 / 3) * Math.PI * Math.pow(getRadius(), 2) * getHeight();
+        return (1.0 / 3.0) * Math.PI * (Math.pow(getRadius(), 2)) * getHeight();
+        
     }
 
     @Override

@@ -5,6 +5,7 @@
 package sorting;
 
 import comparator.baseAreaComparator;
+import comparator.heightComparator;
 import comparator.volumeComparator;
 import complexityandsorting.drivers.Shape;
 import static swap.swap.swap;
@@ -18,7 +19,7 @@ public class sort {
     
     
     //bubble sort
-    public static void bubbleSortHeight(Shape[] array){
+    public static void bubbleSortH(Shape[] array){
         
         for (int i = 0; i < array.length; i++){
             for (int j = 0; j < array.length - 1; j++){
@@ -215,16 +216,59 @@ public class sort {
         }
     }
     
+    //quickSort
+    public  static void quickSortH(Shape[] array, int lowIndex, int hightIndex){
+        
+        Shape pivot = array[hightIndex];
+        
+        Shape leftPointer;
+        
+        
+        
+    }
     
     //insersion sort
     
-    public static void insersionSortHeight(Shape[] array){
+    public static void insersionSortH(Shape[] array){
+        for (int i = 1; i < array.length; i++){
+            Shape currentShape = array[i];
+            
+            int j = i - 1;
+            while (j >= 0 && array[j].compareTo(currentShape) == 1){
+                array[j+1] = array[j];
+                j--;
+            }
+            array[j+1] = currentShape;
+            
+        }
 
     }
     public static void insersionSortBA(Shape[] array){
+        for (int i = 1; i < array.length; i++){
+            Shape currentShape = array[i];
+            
+            int j = i - 1;
+            while (j >= 0 && new baseAreaComparator().compare(array[j], currentShape) == 1){
+                array[j+1] = array[j];
+                j--;
+            }
+            array[j+1] = currentShape;
+            
+        }
         
     }
     public static void insersionSortV(Shape[] array){
+        for (int i = 1; i < array.length; i++){
+            Shape currentShape = array[i];
+            
+            int j = i - 1;
+            while (j >= 0 && new volumeComparator().compare(array[j], currentShape) == 1){
+                array[j+1] = array[j];
+                j--;
+            }
+            array[j+1] = currentShape;
+            
+        }
         
     }
     

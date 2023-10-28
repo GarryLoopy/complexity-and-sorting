@@ -8,6 +8,7 @@ import comparator.baseAreaComparator;
 import comparator.heightComparator;
 import comparator.volumeComparator;
 import complexityandsorting.drivers.Shape;
+import java.util.Comparator;
 import static swap.swap.swap;
 
 /**
@@ -210,15 +211,6 @@ public class sort {
         }
     }
 
-    //quickSort
-    public static void quickSortH(Shape[] array, int lowIndex, int hightIndex) {
-
-        Shape pivot = array[hightIndex];
-
-        Shape leftPointer;
-
-    }
-
     //insersion sort
     public static void insersionSortH(Shape[] array) {
         for (int i = 1; i < array.length; i++) {
@@ -315,6 +307,189 @@ public class sort {
 
     }
 
+    //quickSort
+    //height
+    public static void quickSortH(Shape[] arr) {
+        sortH(arr, 0, arr.length - 1);
+    }
+
+    public static void sortH(Shape[] arr, int low, int high) {
+        if (low < high) {
+            int pi = partitionH(arr, low, high);
+            sortH(arr, low, pi - 1);
+            sortH(arr, pi + 1, high);
+        }
+    }
+
+    public static int partitionH(Shape[] arr, int low, int high) {
+        Shape pivot = arr[high];
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            if (arr[j].compareTo(pivot) < 0) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, high);
+        return i + 1;
+    }
+
+    //BA
+    public static void quickSortBA(Shape[] arr) {
+        sortBA(arr, 0, arr.length - 1);
+    }
+
+    public static void sortBA(Shape[] arr, int low, int high) {
+        if (low < high) {
+            int pi = partitionBA(arr, low, high);
+            sortBA(arr, low, pi - 1);
+            sortBA(arr, pi + 1, high);
+        }
+    }
+
+    public static int partitionBA(Shape[] arr, int low, int high) {
+        Shape pivot = arr[high];
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            if (new baseAreaComparator().compare(arr[j], pivot) < 0) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, high);
+        return i + 1;
+    }
+
+    //volume
+    public static void quickSortV(Shape[] arr) {
+        sortV(arr, 0, arr.length - 1);
+    }
+
+    public static void sortV(Shape[] arr, int low, int high) {
+        if (low < high) {
+            int pi = partitionV(arr, low, high);
+            sortV(arr, low, pi - 1);
+            sortV(arr, pi + 1, high);
+        }
+    }
+
+    public static int partitionV(Shape[] arr, int low, int high) {
+        Shape pivot = arr[high];
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            if (new volumeComparator().compare(arr[j], pivot) < 0) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, high);
+        return i + 1;
+    }
+
+    //heap height
+    //heap volume
+    public static void heapSortH(Shape[] arr) {
+        int n = arr.length;
+
+        // Build heap (rearrange array)
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapifyH(arr, n, i);
+        }
+
+        // One by one extract an element from the heap
+        for (int i = n - 1; i > 0; i--) {
+            Shape temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+
+            heapifyH(arr, i, 0);
+        }
+    }
+
+    public static void heapifyH(Shape[] arr, int n, int i) {
+        int largest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+
+        if (left < n && arr[left].compareTo(arr[largest]) > 0) {
+            largest = left;
+        }
+
+        if (right < n && arr[right].compareTo(arr[largest]) > 0) {
+            largest = right;
+        }
+
+        if (largest != i) {
+            Shape temp = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = temp;
+
+            heapifyH(arr, n, largest);
+        }
+    }
+
+    //BA
+    public static void heapSortBA(Shape[] array) {
+        int n = array.length;
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapifyBA(array, n, i, new baseAreaComparator());
+        }
+        for (int i = n - 1; i > 0; i--) {
+            swap(array, 0, i);
+            heapifyBA(array, i, 0, new baseAreaComparator());
+        }
+    }
+
+    public static void heapifyBA(Shape[] array, int n, int i, Comparator<Shape> baseAreaComparator) {
+        int largest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+
+        if (left < n && baseAreaComparator.compare(array[left], array[largest]) > 0) {
+            largest = left;
+        }
+        if (right < n && baseAreaComparator.compare(array[right], array[largest]) > 0) {
+            largest = right;
+        }
+
+        if (largest != i) {
+            swap(array, i, largest); 
+            heapifyBA(array, n, largest, baseAreaComparator);
+        }
+    }
+
+    //volume
+    public static void heapSortV(Shape[] array) {
+        int n = array.length;
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapifyV(array, n, i, new volumeComparator());
+        }
+        for (int i = n - 1; i > 0; i--) {
+            swap(array, 0, i);
+            heapifyV(array, i, 0, new volumeComparator());
+        }
+    }
+
+    public static void heapifyV(Shape[] array, int n, int i, Comparator<Shape> volumeComparator) {
+        int largest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+
+        if (left < n && volumeComparator.compare(array[left], array[largest]) > 0) {
+            largest = left;
+        }
+        if (right < n && volumeComparator.compare(array[right], array[largest]) > 0) {
+            largest = right;
+        }
+
+        if (largest != i) {
+            swap(array, i, largest); 
+            heapifyV(array, n, largest, volumeComparator);
+        }
+    }
+    ///////////////////
+    //ba
+    //////////////////
+    
+
 }
-
-

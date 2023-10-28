@@ -23,9 +23,13 @@ import java.util.logging.Logger;
 import static sorting.sort.bubbleSortBA;
 import static sorting.sort.bubbleSortH;
 import static sorting.sort.bubbleSortV;
+import static sorting.sort.heapSortBA;
+import static sorting.sort.heapSortH;
+import static sorting.sort.heapSortV;
 import static sorting.sort.insersionSortH;
 import static sorting.sort.mergeSortH;
 import static sorting.sort.mergeSortV;
+import static sorting.sort.quickSortV;
 import static sorting.sort.selectionSortH;
 import static sorting.sort.selectionSortV;
 
@@ -57,7 +61,8 @@ public class ComplexityAndSorting {
                 //System.out.println(mshapeList[4]);
                 //bubbleSortV(mshapeList);
                 //insersionSortH(mshapeList);
-                selectionSortV(mshapeList);
+                //selectionSortV(mshapeList);
+                heapSortH(mshapeList);
                 int counter = 0;
                 for (Shape shape : mshapeList) {
                     if (shape instanceof Circle circle){

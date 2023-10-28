@@ -26,6 +26,8 @@ import static sorting.sort.bubbleSortV;
 import static sorting.sort.insersionSortH;
 import static sorting.sort.mergeSortH;
 import static sorting.sort.mergeSortV;
+import static sorting.sort.selectionSortH;
+import static sorting.sort.selectionSortV;
 
 
 /**
@@ -54,7 +56,8 @@ public class ComplexityAndSorting {
                 //System.out.println(new heightComparator().compare(mshapeList[2], mshapeList[4]));
                 //System.out.println(mshapeList[4]);
                 //bubbleSortV(mshapeList);
-                insersionSortH(mshapeList);
+                //insersionSortH(mshapeList);
+                selectionSortV(mshapeList);
                 int counter = 0;
                 for (Shape shape : mshapeList) {
                     if (shape instanceof Circle circle){

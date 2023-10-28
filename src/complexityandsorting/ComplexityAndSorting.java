@@ -1,6 +1,7 @@
 package complexityandsorting;
 
 import static ZacksStuff.arrayManiplulation.fistTwo;
+import static ZacksStuff.displayer.displayShapes;
 import ZacksStuff.fileReading;
 import static ZacksStuff.fileReading.convertToFileFormat;
 import static ZacksStuff.fileReading.readFileShapes;
@@ -26,13 +27,18 @@ import static sorting.sort.bubbleSortV;
 import static sorting.sort.heapSortBA;
 import static sorting.sort.heapSortH;
 import static sorting.sort.heapSortV;
+import static sorting.sort.insersionSortBA;
 import static sorting.sort.insersionSortH;
+import static sorting.sort.insersionSortV;
+import static sorting.sort.mergeSortBA;
 import static sorting.sort.mergeSortH;
 import static sorting.sort.mergeSortV;
+import static sorting.sort.quickSortBA;
+import static sorting.sort.quickSortH;
 import static sorting.sort.quickSortV;
+import static sorting.sort.selectionSortBA;
 import static sorting.sort.selectionSortH;
 import static sorting.sort.selectionSortV;
-
 
 /**
  *
@@ -45,99 +51,90 @@ public class ComplexityAndSorting {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        
-        for (String pram : args){
+
+        System.out.println("-------------");
+        Shape[] mshapeList = null;
+        String state = "";
+        for (String pram : args) {            
             
-            //file reading
-            if (pram.contains("-f")){
-                //read file + make objects + add to list
-                
-                Shape[] mshapeList = readFileShapes(pram);
-                
-                //just seeing the list
-                System.out.println("-------------");
-                //System.out.println(mshapeList[2].compareTo(mshapeList[4])); 
-                //System.out.println(new heightComparator().compare(mshapeList[2], mshapeList[4]));
-                //System.out.println(mshapeList[4]);
-                //bubbleSortV(mshapeList);
-                //insersionSortH(mshapeList);
-                //selectionSortV(mshapeList);
-                heapSortH(mshapeList);
-                int counter = 0;
-                for (Shape shape : mshapeList) {
-                    if (shape instanceof Circle circle){
-                        System.out.println("This is a " + shape.getShapeName());
-                        System.out.println("Height: " + shape.getHeight());
-                        System.out.println("Radius: " + circle.getRadius());
-                        System.out.println("Base area: " + circle.calculateBaseArea());
-                        System.out.println("Volume: " + circle.calculateVolume());
-                        System.out.println("-------------");
-                    }
-                    else if (shape instanceof Prism prism) {
-                        System.out.println("This is a " + shape.getShapeName());
-                        System.out.println("Height: " + shape.getHeight());
-                        System.out.println("Edge: " + prism.getEdge());
-                        System.out.println("Base area: " + prism.calculateBaseArea());
-                        System.out.println("Volume: " + prism.calculateVolume());
-                        System.out.println("-------------");
-                    }
-                    else if (shape instanceof Pyramid pyramid) {
-                        System.out.println("This is a " + shape.getShapeName());
-                        System.out.println("Height: " + shape.getHeight());
-                        System.out.println("Edge: " + pyramid.getEdge());
-                        System.out.println("Base area: " + pyramid.calculateBaseArea());
-                        System.out.println("Volume: " + pyramid.calculateVolume());
-                        System.out.println("-------------");
-                    }  
-                    counter++;
+            if (pram.contains("-f")) {
+                mshapeList = readFileShapes(pram);
+            }
+            else if (pram.contains("-th")) {
+                state = "h";
+            }
+            else if (pram.contains("-ta")) {
+                state = "ba";
+            }
+            else if (pram.contains("-tv")) {
+                state = "v";
+            }
+            
+            if (state.equals("h")){
+                if (pram.contains("-sb")) {
+                    //bubbleSortH(mshapeList);
+                    System.out.println("this is -th and -sb");
+                } 
+                else if (pram.contains("-si")) {
+                    insersionSortH(mshapeList);
+                } 
+                else if (pram.contains("-ss")) {
+                    selectionSortH(mshapeList);
                 }
-                System.out.println(counter);
+                else if (pram.contains("-sm")) {
+                    mergeSortH(mshapeList);
+                } 
+                else if (pram.contains("-sq")) {
+                    quickSortH(mshapeList);
+                } 
+                else if (pram.contains("-sh")) {
+                    heapSortH(mshapeList);
+                }
+            } 
+              
+            if (state.equals("v")){
+                if (pram.contains("-sb")) {
+                    bubbleSortV(mshapeList);
+                } 
+                else if (pram.contains("-si")) {
+                    insersionSortV(mshapeList);
+                } 
+                else if (pram.contains("-ss")) {
+                    selectionSortV(mshapeList);
+                } //mege sort
+                else if (pram.contains("-sm")) {
+                    mergeSortV(mshapeList);
+                } 
+                else if (pram.contains("-sq")) {
+                    quickSortV(mshapeList);
+                } 
+                else if (pram.contains("-sh")) {
+                    heapSortV(mshapeList);
+                }
+            } 
+                    
+            if (state.equals("ba")) {
+                if (pram.contains("-sb")) {
+                    bubbleSortBA(mshapeList);
+                } 
+                else if (pram.contains("-si")) {
+                    insersionSortBA(mshapeList);
+                } 
+                else if (pram.contains("-ss")) {
+                    selectionSortBA(mshapeList);
+                } //mege sort
+                else if (pram.contains("-sm")) {
+                    mergeSortBA(mshapeList);
+                } 
+                else if (pram.contains("-sq")) {
+                    quickSortBA(mshapeList);
+                } 
+                else if (pram.contains("-sh")) {
+                    heapSortBA(mshapeList);
+                }
             }
+                //displayShapes(mshapeList);
             
-            //t
-                //height
-            else if (pram.contains("-th")){
-                System.out.println("hi im paul");
-            }
-                //volume
-            else if (pram.contains("-tv")){
-                System.out.println("hi im steeeeeeeven");
-            }
-                //base area
-            else if (pram.contains("-ta")){
-                System.out.println("a");
-                
-            }
-            
-            
-            //sorting
-                //bubble sort
-            else if (pram.contains("-sb")){
-                
-            }
-                //insersion sort
-            else if (pram.contains("-si")){
-                
-            }
-                //selection sort
-            else if (pram.contains("-ss")){
-                
-            }
-                //mege sort
-            else if (pram.contains("-sm")){
-                
-            }
-                //quick sort
-            else if (pram.contains("-sq")){
-                
-            }
-                //my sort method
-            else if (pram.contains("-s6")){
-                
-            }
-            else{
-                System.out.println("Invalid input!");
-            }
         }
     }
 }

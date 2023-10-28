@@ -44,7 +44,7 @@ public class sort {
 
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length - 1; j++) {
-                if (new volumeComparator().compare(array[j], array[j + 1]) == -1) {
+                if (new volumeComparator().compare(array[j], array[j + 1]) == 1) {
                     swap(array, j, j + 1);
                 }
             }

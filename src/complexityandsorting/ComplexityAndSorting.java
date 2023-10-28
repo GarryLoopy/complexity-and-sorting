@@ -72,7 +72,8 @@ public class ComplexityAndSorting {
             
             if (state.equals("h")){
                 if (pram.contains("-sb")) {
-                    //bubbleSortH(mshapeList);
+                    bubbleSortH(mshapeList);
+                    ////////////////////////////////////////////////////////////////////////////currently trying to acess this from any orrder
                     System.out.println("this is -th and -sb");
                 } 
                 else if (pram.contains("-si")) {
@@ -133,8 +134,9 @@ public class ComplexityAndSorting {
                     heapSortBA(mshapeList);
                 }
             }
-                //displayShapes(mshapeList);
+            
             
         }
+        displayShapes(mshapeList);
     }
 }
